@@ -1,0 +1,44 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <img src="../icons/TheNiceHouseLogo.png" alt="Logo" class="navbar-logo" />
+    </div>
+    <div class="navbar-right">
+        <a href="/home" class="navbar-link">About us</a>
+        <a href="/tenant" class="navbar-link">Management</a>
+        <!-- <router-link to="/profile" class="navbar-link">Information</router-link> -->
+        <a href="/home" class="navbar-link">Contact us</a>
+        <a href="/profile" class="navbar-link">Information</a>
+        <!-- <button @click="handleAuthAction" class="navbar-link">
+            {{ authState.isAuthenticated ? 'Logout' : 'Login' }}
+        </button> -->
+        
+    </div>
+</nav>
+<style scoped>
+    @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+    .navbar {
+        background: white;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-logo {
+        height: 54px;
+    }
+
+    .navbar-link {
+        font-family: 'Poppins', sans-serif;
+        color: #000000;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .navbar-link:hover {
+        text-decoration: underline;
+    }
+</style>

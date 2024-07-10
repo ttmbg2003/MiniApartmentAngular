@@ -1,1 +1,38 @@
-<p>tenant works!</p>
+<div style="display: flex;">
+    <app-sidebar></app-sidebar>
+    <div class="container">
+        <div class="card">
+
+            <div style="display: flex;margin-left: 32px;">
+                <div class="line-blue"></div>
+                <div>
+                    <h3 style="margin: 0;">List of Apartment Tenants</h3>
+                    <p style="margin: 0;">List of All Apartment Tenants</p>
+                </div>
+            </div>
+            <div>
+                <div style="display: flex;justify-content: center;    margin-bottom: 23px;">
+                    <img src="../assets/icon/TenantIcon.png" style="width: 2%;height: 2%;margin-top: 8px;" >
+                    <input type="text" v-model="searchValue" class="input-search"
+                        placeholder="Please enter a full name">
+                </div>
+                <div style="display: flex;justify-content: flex-end;">
+                    <p style="margin-right: 31px;margin-bottom: 12px;">Total: </p>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="tenantDetailModal" tabindex="-1" aria-labelledby="tenantDetailModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" style="max-width: 100%;">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header">
+            <h5 class="modal-title" id="changePassModalLabel">Change Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

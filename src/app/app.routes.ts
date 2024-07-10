@@ -1,3 +1,8 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import TenantView from '../tenant/tenant.component'
+export const routes: Routes = [
+    {
+        path: 'tenant',
+        component: TenantView,
+      }
+];
