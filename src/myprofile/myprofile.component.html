@@ -1,0 +1,106 @@
+<div class="container" *ngIf="user">
+    <div style="display: flex; padding-top: 20PX;
+    padding-left: 5rem;align-items: center;">
+      <!-- <spam><input type="file"><img class="avartar-img" src="../components/icons/minh.jpg"></spam> -->
+      <input type="file" id="fileInput" style="display:none;">
+      <img v-bind:src="localUser.image" class="avartar-img" alt="Click to upload" id="image" style="cursor: pointer;">
+      <div>
+        <h1>{{user.firstName}} {{user.lastName}} </h1>
+        <p style="margin: 0;">{{user.email}} </p>
+      </div>
+      <div style="display: flex;flex: 0%;justify-content: flex-end;">
+        <button class="btn btn-edit-profile">Edit my profile</button>
+        <button class="btn btn-change-password" data-bs-toggle="modal" data-bs-target="#changePassModal">Change
+          password</button>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="changePassModal" tabindex="-1" aria-labelledby="changePassModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changePassModalLabel">Change Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form >
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Email Address</label>
+                <input class="input-change-pass" type="email" v-model="emailChangePass" value="{{user.email}}" disabled/>
+              </div>
+              <div class="form-group">
+                <label>Current Password</label>
+                <input class="input-change-pass" type="password" v-model="currentPasswordChange" />
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input class="input-change-pass" type="password" v-model="newPasswordChange" />
+              </div>
+              <div class="form-group">
+                <label>Confirm New Password</label>
+                <input class="input-change-pass" type="password" v-model="confirmPasswordChange" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-save">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div >
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div style="display: flex;">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input class="input-user-info" type="text" id="fullName" formControlName="name" />
+              <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched">
+                Name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select class="input-user-info" name="gender" v-model="localUser.gender">
+                <option selected disabled value="">Select</option>
+                <option value="true">Male</option>
+                <option value="false">Female</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: flex;">
+            <div class="form-group">
+              <label>Date Of Birth</label>
+              <input class="input-user-info" type="date" v-model="localUser.dateOfBirth" />
+            </div>
+            <div class="form-group">
+              <label>Id Number</label>
+              <input class="input-user-info" type="text" v-model="localUser.userId" disabled value="{{user.citizenId}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Place Of Permanent</label>
+            <input class="input-user-info" type="text" v-model="localUser.placeOfPermanet" style="width: 98%;"
+              value="{{user.placeOfPermanet ? user.placeOfPermanet :'Your place of permanet'}}"/>
+          </div>
+          <div style="display: flex;">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input class="input-user-info" type="email" v-model="localUser.email" value="{{user.email}}"/>
+            </div>
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input class="input-user-info" type="text" v-model="localUser.contact"
+                 value="{{user.contact ? user.contact :'Your contact number'}}"/>
+            </div>
+          </div>
+          <div style="display: flex;justify-content: center;">
+            <button class="btn btn-cancel" type="button" [routerLink]="''">Go to home</button>
+            <button class="btn btn-save" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

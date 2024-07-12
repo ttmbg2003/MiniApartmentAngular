@@ -1,13 +1,13 @@
 <nav class="navbar">
     <div class="navbar-left">
-        <img src="../icons/TheNiceHouseLogo.png" alt="Logo" class="navbar-logo" />
+        <img src="../../assets/icons/TheNiceHouseLogo.png" alt="Logo" class="navbar-logo" />
     </div>
     <div class="navbar-right">
         <a href="/home" class="navbar-link">About us</a>
-        <a href="/tenant" class="navbar-link">Management</a>
+        <a [routerLink]="['/tenant']" routerLinkActive="active" class="navbar-link">Management</a>
         <!-- <router-link to="/profile" class="navbar-link">Information</router-link> -->
         <a href="/home" class="navbar-link">Contact us</a>
-        <a href="/profile" class="navbar-link">Information</a>
+        <a [routerLink]="['/profile']"  class="navbar-link">Information</a>
         <!-- <button @click="handleAuthAction" class="navbar-link">
             {{ authState.isAuthenticated ? 'Logout' : 'Login' }}
         </button> -->

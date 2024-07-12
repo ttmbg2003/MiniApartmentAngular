@@ -12,26 +12,76 @@
             </div>
             <div>
                 <div style="display: flex;justify-content: center;    margin-bottom: 23px;">
-                    <img src="../assets/icon/TenantIcon.png" style="width: 2%;height: 2%;margin-top: 8px;" >
+                    <img src="../assets/icons/searchIcon.png" style="width: 2%;height: 2%;margin-top: 8px;">
                     <input type="text" v-model="searchValue" class="input-search"
                         placeholder="Please enter a full name">
                 </div>
                 <div style="display: flex;justify-content: flex-end;">
                     <p style="margin-right: 31px;margin-bottom: 12px;">Total: </p>
                 </div>
+                <div>
+                    <table style="width: 100%;text-align: left;padding-left: 19px;">
+                        <thead>
+                            <th>No.</th>
+                            <th>Full Name</th>
+                            <th>Room No</th>
+                            <th>Gender</th>
+                            <th>D.O.B</th>
+                            <th>Mobile No</th>
+                            <th>Email ID</th>
+                            <th>Citizen ID</th>
+                            <th>Career</th>
+                            <th>License Plate</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of source; let i = index">
+                                <td>{{i}}</td>
+                                <td>{{item.firstName}} {{item.lastName}}</td>
+                                <td>{{item.roomId}}</td>
+                                <td>{{item.gender}}</td>
+                                <td>{{item.dateOfBirth}}</td>
+                                <td>{{item.contact}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.citizenId}}</td>
+                                <td>{{item.career}}</td>
+                                <td>{{item.licensePlate}}</td>
+                                <td>
+                                    <a data-bs-toggle="modal" data-bs-target="#tenantDetailModal"><i><img
+                                                src="../assets/icons/eye.png" style="width: 23px;"></i></a>
+                                    <a href="#"><i><img src="../assets/icons/TrashIcon.png"
+                                                style="width: 23px;"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                          </li>
+                          <li *ngFor="let pageNumber of totalPage; let i = index" class="page-item">
+                            <a class="page-link" href="#">{{i.toString}}</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
             </div>
-            <!-- Modal -->
-            <div class="modal fade" id="tenantDetailModal" tabindex="-1" aria-labelledby="tenantDetailModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" style="max-width: 100%;">
-                    <div class="modal-content">
-                        <!-- <div class="modal-header">
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="tenantDetailModal" tabindex="-1" aria-labelledby="tenantDetailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 100%;">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
             <h5 class="modal-title" id="changePassModalLabel">Change Password</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div> -->
 
-                    </div>
-                </div>
             </div>
         </div>
     </div>
